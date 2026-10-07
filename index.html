@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#fff4d6" />
+    <meta name="description" content="拖曳小小果農接住蘋果、躲開帶刺栗子的可愛果園遊戲。" />
+    <title>松鼠果園接接樂</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="site-header">
+        <div>
+          <p class="eyebrow">SUNNY ORCHARD · MINI GAME</p>
+          <h1>松鼠果園<span>接接樂</span></h1>
+        </div>
+        <div class="header-badge" aria-label="遊戲操作方式">拖曳就能玩 <span>✦</span></div>
+      </header>
+
+      <section class="game-card" aria-label="松鼠果園接接樂遊戲區">
+        <div class="game-stage" id="gameStage">
+          <canvas id="gameCanvas" width="960" height="600" aria-label="果園遊戲畫面"></canvas>
+          <div class="hud" aria-live="polite">
+            <div class="hud-pill score-pill"><span class="hud-icon">★</span><span>分數</span><strong id="scoreValue">0</strong></div>
+            <div class="hud-pill hearts-pill" aria-label="剩餘生命"><span class="hud-label">小心！</span><span id="heartsValue" class="hearts">♥ ♥ ♥</span></div>
+          </div>
+          <div class="overlay" id="startOverlay">
+            <div class="overlay-card intro-card">
+              <div class="mascot">🍎</div>
+              <p class="card-kicker">READY, SET, CATCH!</p>
+              <h2>幫小小果農<br /><em>接住好吃蘋果！</em></h2>
+              <p class="overlay-copy">拖曳下方角色左右移動，接住蘋果得 1 分。<br />帶刺栗子可不能碰喔！</p>
+              <button class="primary-button" id="startButton" type="button">開始遊戲 <span>→</span></button>
+              <p class="tiny-hint">桌機用滑鼠 · 手機用手指</p>
+            </div>
+          </div>
+          <div class="overlay is-hidden" id="gameOverOverlay">
+            <div class="overlay-card result-card">
+              <div class="result-sparkles">✦　✧　✦</div>
+              <p class="card-kicker danger-kicker">OH NO!</p>
+              <h2>果園休息時間</h2>
+              <p class="final-score-label">本次分數</p>
+              <p class="final-score" id="finalScore">0</p>
+              <p class="overlay-copy">蘋果們會等你再來挑戰的！</p>
+              <button class="primary-button" id="restartButton" type="button">再玩一次 <span>↻</span></button>
+            </div>
+          </div>
+          <div class="pause-note is-hidden" id="pauseNote">回來了就繼續接蘋果吧！</div>
+        </div>
+        <div class="game-footer">
+          <div class="legend"><span class="legend-item"><i class="legend-apple">●</i> 蘋果 +1</span><span class="legend-item"><i class="legend-chestnut">✹</i> 栗子 -1 心</span></div>
+          <p class="footer-tip">拖曳角色，把籃子放到落下物的下方</p>
+        </div>
+      </section>
+      <p class="sr-only" id="gameStatus" aria-live="assertive"></p>
+    </main>
+    <script src="./game-core.js"></script>
+    <script src="./game.js"></script>
+  </body>
+</html>
